@@ -7,6 +7,11 @@
 #
 #######################
 
+if [ $# -lt 2 ]
+  then
+    echo "Not enough arguments supplied"
+fi
+
 # get real paths and convert / to -
 SOURCEDIR_DASH=$(realpath $1 | sed 's/\//-/g')
 TARGETDIR_DASH=$(realpath $2 | sed 's/\//-/g')
