@@ -20,6 +20,7 @@ TARGETDIR_DASH=$(realpath $2 | sed 's/\//-/g')
 
 # execute rsync within a screen command, printing the exit code at the end and waiting for ENTER to continue.
 # Everything is also logged to a logfile in the home directory that contains source and target dirs, as well as a unique date.
+# NOTE: in order for the command to work, none of the lines below should be indented 
 
 screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s,a-w '$1' '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
 '| tee '${HOME}'/RSYNC_'${SOURCEDIR_DASH}'_TO_'${TARGETDIR_DASH}'_AT_'$(date -Iseconds)'.txt; '\
