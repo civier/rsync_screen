@@ -16,10 +16,14 @@ fi
 
 # get real paths and convert / to -
 SOURCEDIR_DASH=$(realpath $1 | sed 's/\//-/g')
+
+# check if TARGETDIR has host
 if grep -q ':' <<< $2
 then
+	# if yes, no need realpath
 	TARGETDIR_DASH=$(echo $2 | sed 's/\//-/g')
 else
+	# if not, need realpath
 	TARGETDIR_DASH=$(realpath $2 | sed 's/\//-/g')
 fi
 
