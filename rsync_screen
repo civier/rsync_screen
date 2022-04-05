@@ -16,7 +16,12 @@ fi
 
 # get real paths and convert / to -
 SOURCEDIR_DASH=$(realpath $1 | sed 's/\//-/g')
-TARGETDIR_DASH=$(realpath $2 | sed 's/\//-/g')
+if grep -q ':' <<< $2
+then
+	TARGETDIR_DASH=$(echo $2 | sed 's/\//-/g')
+else
+	TARGETDIR_DASH=$(realpath $2 | sed 's/\//-/g')
+fi
 
 # execute rsync within a screen command, printing the exit code at the end and waiting for ENTER to continue.
 # Everything is also logged to a logfile in the home directory that contains source and target dirs, as well as a unique date.
