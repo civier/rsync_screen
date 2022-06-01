@@ -3,12 +3,17 @@
 #       rsync_screen SOURCEDIR TARGETHOST:TARGETDIR 
 #
 # rsync_screen copies folders using rsync, with the transfer continuing in the background also in case of network disruption. 
-# It also keeps the rsync log, and prints the exit status at the end
+# It also automatically saves the rsync log, and prints the exit status at the end (to both terminal and log file).
+# Before exiting, rsync_screen waits for the user to press ENTER, so as to give the user a chance to review the terminal output.
+# This is because the output of rsync_screen to the terminal is erased at exit.
 #
-# Note: when running rsync_screen already inside a 'screen' command session, it might be executed in the background, i.e.,
-#       bash will continue to the next command in line without waiting for the output to terminate.
-#	This might be problematic when executing many rsync_screen; they might be executed in parallel instead of in a row, and the
-#	servers might hit their limit on concurrent ssh or rsync sessions
+# Note: When running rsync_screen already inside a 'screen' command session, it behaves differently than normal.
+#	Instead of executing the rsync in the foreground (i.e., waiting for it to terminate before passing to the next command), 
+#	it executes it in the background (i.e., while rsync_screen runs, the shell continues to execute the rest of the script).
+#	However, the terminal ouptut of the subsequent commands in the script will not be shown until rsync_screen terminates.
+#	If additional screen commands are executed while rsync_screen runs, their output will not be shown at all.
+#	The above might be problematic when a script executes several rsync_screen commands in a row; they might be executed in parallel, 
+#	and the servers might hit their limit on concurrent ssh or rsync sessions!
 #
 #######################
 
