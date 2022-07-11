@@ -41,6 +41,11 @@ fi
 # Everything is also logged to a logfile in the home directory that contains source and target dirs, as well as a unique date.
 # NOTE: in order for the command to work, none of the lines below should be indented 
 
-screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s,a-w '$1' '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
+# the trailing '/' after source indicate that need to copy files within folder rather than folder itself. 
+# If the source and target folder have the same name, rsync automatically copy files within folder rather than folder itself;
+# but if names are different, must specify the slash to idicate it!
+# To prevent this inconcsistent behavior, better to always have a trailing /. However, cannot copy single files
+
+screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s,a-w '$1'/ '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
 '| tee '${HOME}'/RSYNC_'${SOURCEDIR_DASH}'_TO_'${TARGETDIR_DASH}'_AT_'$(date -Iseconds)'.txt; '\
 'read -p "Press enter to continue"'
