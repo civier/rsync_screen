@@ -46,6 +46,6 @@ fi
 # but if names are different, must specify the slash to idicate it!
 # To prevent this inconcsistent behavior, better to always have a trailing /. However, cannot copy single files
 
-screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s,a-w '$1'/ '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
+screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s '$1'/ '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
 '| tee '${HOME}'/RSYNC_'${SOURCEDIR_DASH}'_TO_'${TARGETDIR_DASH}'_AT_'$(date -Iseconds)'.txt; '\
 'read -p "Press enter to continue"'
