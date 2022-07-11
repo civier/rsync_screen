@@ -48,6 +48,8 @@ fi
 
 # The flags preserve permissions
 
-screen bash -c '(rsync -avPxHS --no-g --chmod=Dg+s '$1'/ '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
+# -vx is order to have a record of the command used
+
+screen bash -vx -c '(rsync -avPxHS --no-g --chmod=Dg+s '$1'/ '$2'; echo "EXIT CODE: "${?}) 2>&1 '\
 '| tee '${HOME}'/RSYNC_'${SOURCEDIR_DASH}'_TO_'${TARGETDIR_DASH}'_AT_'$(date -Iseconds)'.txt; '\
 'read -p "Press enter to continue"'
