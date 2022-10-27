@@ -8,6 +8,7 @@ It also keeps the rsync log, and prints the exit status at the end
 Note: to download the script to your machine, please run
 
   wget https://raw.githubusercontent.com/civier/rsync_screen/main/rsync_screen
+  
   chmod u+x rsync_screen
 
 Author:
