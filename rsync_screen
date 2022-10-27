@@ -1,6 +1,6 @@
 ######################
 # usage:
-#       rsync_screen SOURCEDIR TARGETHOST:TARGETDIR 
+#       rsync_screen SOURCEDIR TARGETUSER@TARGETHOST:TARGETDIR 
 #
 # rsync_screen copies folders using rsync, with the transfer continuing in the background also in case of network disruption. 
 # It also automatically saves the rsync log, and prints the exit status at the end (to both terminal and log file).
