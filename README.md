@@ -5,7 +5,11 @@ Usage: rsync_screen SOURCEDIR TARGETUSER@TARGETHOST:TARGETDIR
 rsync_screen copies folders using rsync, with the transfer continuing in the background also in case of network disruption. 
 It also keeps the rsync log, and prints the exit status at the end
 
-Note: if the username in the target machine is identical to the username in source machine, there is no need to specify TARGETUSER@
+Notes:
+
+1. If the username in the target machine is identical to the username in source machine, TARGETUSER@ can be dropped (including the @ sign)
+
+2. If TARGETDIR is a relative path (does not start with / or ~), the path will be relative to the home directory of TARGETUSER on TARGETHOST
 
 To download the script to your machine, please run
 
