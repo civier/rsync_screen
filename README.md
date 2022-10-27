@@ -1,11 +1,13 @@
 # rsync_screen
 
-Usage: rsync_screen SOURCEDIR TARGETHOST:TARGETDIR 
+Usage: rsync_screen SOURCEDIR TARGETUSER@TARGETHOST:TARGETDIR 
 
 rsync_screen copies folders using rsync, with the transfer continuing in the background also in case of network disruption. 
 It also keeps the rsync log, and prints the exit status at the end
 
-Note: to download the script to your machine, please run
+Note: if the username in the target machine is identical to the username in source machine, there is no need to specify TARGETUSER@
+
+To download the script to your machine, please run
 
 
   wget https://raw.githubusercontent.com/civier/rsync_screen/main/rsync_screen
