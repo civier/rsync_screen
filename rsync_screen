@@ -21,6 +21,16 @@
 #                  a National Collaborative Research Infrastructure Strategy (NCRIS) capability, at Swinburne Neuroimaging, Swinburne University.
 #######################
 
+# exit on error
+set -e
+
+# issue an error if a variable is not bound + additional settings
+set -uo pipefail
+# to check if variable exists with -u turn on, use [ -v VAR_NAME ] or [ $# -gt 0 ] if arguments
+
+# Additional settings
+shopt -s failglob lastpipe
+
 if [ $# -ne 2 ]
   then
     echo 'rsync_screen: wrong number of arguments provided'
