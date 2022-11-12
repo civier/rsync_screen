@@ -12,9 +12,11 @@ Notes:
 
 2. If TARGETDIR already exists, the result of the command will be that the directory tree below SOURCEDIR will be combined with the existing directory tree below TARGETDIR on TARGETHOST.
 
-3. If TARGETDIR is a relative path (does not start with / or \~), the path will be relative to the home directory of TARGETUSER on TARGETHOST. If TARGETDIR is omitted, it is as if the user specified '.' for TARGETDIR.
+3. If TARGETDIR is a relative path (does not start with / or \~), the path will be relative to the home directory of TARGETUSER on TARGETHOST.
 
 4. If TARGETDIR starts with \~, \~ will be substituted with the home directory of TARGETUSER on TARGETHOST.
+
+5. If TARGETDIR is omitted, TARGETDIR is the home directory of TARGETUSER on TARGETHOST.
 
 
 To download the script to your machine, please run
