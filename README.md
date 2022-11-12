@@ -16,7 +16,7 @@ Notes:
 
 4. If TARGETDIR starts with \~, \~ will be substituted with the home directory of TARGETUSER on TARGETHOST.
 
-5. If TARGETDIR is omitted, TARGETDIR is the home directory of TARGETUSER on TARGETHOST.
+5. If TARGETDIR is omitted (but with the preceding ':' character intact), TARGETDIR is the home directory of TARGETUSER on TARGETHOST.
 
 
 To download the script to your machine, please run
