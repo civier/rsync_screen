@@ -10,7 +10,7 @@ Notes:
 
 1. If the username in the target machine is identical to the username in source machine, TARGETUSER@ can be dropped (including the @ sign)
 
-2. If TARGETDIR is a relative path (does not start with / or ~), the path will be relative to the home directory of TARGETUSER on TARGETHOST. If TARGETDIR is omitted, it is as if the user specified '~' for TARGETDIR.
+2. If TARGETDIR is a relative path (does not start with / or \~), the path will be relative to the home directory of TARGETUSER on TARGETHOST. If TARGETDIR is omitted, it is as if the user specified '\~' for TARGETDIR.
 
 3. If TARGETDIR already exists, the result of the command will be that the directory tree below SOURCEDIR will be combined with the existing directory tree below TARGETDIR on TARGETHOST.
 
